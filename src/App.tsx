@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { ReactQueryDevtools } from "react-query/devtools";
 import Router from "./Router";
 
 //랜더링될 떄, 그 전역 스코프에 스타일을 적용시킴.
@@ -76,6 +77,7 @@ function App() {
     <>
       <GlobalStyle />
       <Router />
+      <ReactQueryDevtools initialIsOpen={true} />
     </>
   );
 }
