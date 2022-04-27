@@ -164,6 +164,7 @@ function Coin() {
   );
 
   const loading = infoLoading || tickersLoading;
+
   // useEffect(() => {
   //   (async () => {
   //     const infoData = await (
@@ -182,7 +183,9 @@ function Coin() {
   return (
     <Container>
       <Header>
-        <Title>{state?.name || "Loading..."}</Title>
+        <Title>
+          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+        </Title>
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
@@ -227,7 +230,7 @@ function Coin() {
               <Price />
             </Route>
             <Route path={`/${coinId}/chart`}>
-              <Chart />
+              <Chart coinId={coinId} />
             </Route>
           </Switch>
         </>
